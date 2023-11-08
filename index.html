@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tela de Login</title>
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        />
+        <link rel="shortcut icon" href="./configuracao.png" type="image/x-icon">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <style>
+            .login-container {
+                max-width: 400px;
+                margin: 0 auto;
+                margin-top: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container login-container">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Tela de Login</h3>
+                </div>
+                <div class="card-body">
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label for="username">Usuário:</label>
+                            <select
+                                class="form-control"
+                                name="tecnico"
+                                id="tecnico"
+                            >
+                                <option value="" hidden>Técnico</option>
+                                <option value="Cintia">Cintia</option>
+                                <option value="Igor">Igor</option>
+                                <option value="João">João</option>
+                                <option value="Rúbens">Rúbens</option>
+                                <option value="Tiago">Tiago</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            Entrar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script>
+
+            $("#login-form").submit(function (e) {
+                e.preventDefault();
+                var username = $("#tecnico").val();
+                sessionStorage.setItem("tec", username)
+                window.location.href = "./main.html";
+            });
+
+        </script>
+    </body>
+</html>

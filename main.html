@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="./configuracao.png" type="image/x-icon">
+    <title>Produção</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Produção</h2>
+        <form method="post" id="manutencao-form">
+            <div class="form-group">
+                <label for="tecnico">Técnico</label>
+                <select class="form-control" name="tecnico" id="tecnico">
+                    <option value="" hidden>Técnico</option>
+                    <option value="Cintia">Cintia</option>
+                    <option value="Igor">Igor</option>
+                    <option value="João">João</option>
+                    <option value="Rúbens">Rúbens</option>
+                    <option value="Tiago">Tiago</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="patrimonio">Patrimônio</label>
+                <input type="text" class="form-control" name="patrimonio" id="patrimonio">
+            </div>
+            <div class="form-group">
+                <label for="orgao">Órgão</label>
+                <input type="text" class="form-control" name="orgao" id="orgao">
+            </div>
+            <!-- Equipamentos -->
+            <div class="form-group">
+                <label for="equipamento">Equipamento</label>
+                <select class="form-control" name="equipamento" id="equipamento">
+                    <option value="" hidden>Equipamento</option>
+                    <option value="Adaptador DVI - VGA">Adaptador DVI - VGA</option>
+                    <option value="Bateria 3V">Bateria 3V</option>
+                    <option value="Braçadeira Pequena">Braçadeira Pequena</option>
+                    <option value="Caixa de Cabo UTP">Caixa de Cabo UTP</option>
+                    <option value="Câmera">Câmera</option>
+                    <option value="Cooler Fan">Cooler Fan</option>
+                    <option value="DR-450">DR-450</option>
+                    <option value="Estabilizador">Estabilizador</option>
+                    <option value="Etiqueta">Etiqueta</option>
+                    <option value="Fonte ATX">Fonte ATX</option>
+                    <option value="Fonte Real">Fonte Real</option>
+                    <option value="Gabinete">Gabinete</option>
+                    <option value="HD 160 GB">HD 160 GB</option>
+                    <option value="HD 320 GB">HD 320 GB</option>
+                    <option value="HD 500 GB">HD 500 GB</option>
+                    <option value="HD 1 TB">HD 1 TB</option>
+                    <option value="HD SSD 120">HD SSD 120</option>
+                    <option value="HD SSD 240">HD SSD 240</option>
+                    <option value="Limpa Contato">Limpa Contato</option>
+                    <option value="Memória 2 GB">Memória 2 GB</option>
+                    <option value="Memória 4 GB">Memória 4 GB</option>
+                    <option value="Memória 8 GB">Memória 8 GB</option>
+                    <option value="Micro">Micro</option>
+                    <option value="Notebook">Notebook</option>
+                    <option value="Pilha AA">Pilha AA</option>
+                    <option value="Pilha AAA">Pilha AAA</option>
+                    <option value="Placa de Vídeo">Placa de Vídeo</option>
+                    <option value="Placa Mãe 1155">Placa Mãe 1155</option>
+                    <option value="Placa Mãe 1155 HP">Placa Mãe 1155 HP</option>
+                    <option value="Placa Mãe PCI-E">Placa Mãe PCI-E</option>
+                    <option value="Processador I3">Processador I3</option>
+                    <option value="Processador 15">Processador 15</option>
+                    <option value="Processador i7">Processador i7</option>
+                    <option value="Rack SU">Rack SU</option>
+                    <option value="Servidor">Servidor</option>
+                    <option value="Resinite">Resinite</option>
+                    <option value="Transformador 200 VA">Transformador 200 VA</option>
+                </select>
+            </div>
+            <!-- Defeito -->
+            <div class="form-group">
+                <label for="defeito">Defeito</label>
+                <select class="form-control" name="defeito" id="defeito">
+                    <option hidden>Defeito</option>
+                    <option>Arquivo Apagado</option>
+                    <option value="Base Quebrada">Base Quebrada</option>
+                    <option value="Bateria">Bateria</option>
+                    <option value="Carregador">carregador</option>
+                    <option value="Cooler">Cooler</option>
+                    <option value="Fonte">Fonte</option>
+                    <option value="Gabinete">Gabinete</option>
+                    <option value="HD">HD</option>
+                    <option value="Memória">Memória</option>
+                    <option value="Placa Mãe">Placa Mãe</option>
+                    <option value="Placa Mãe/Cooler/Fonte">Placa Mãe/Cooler/Fonte</option>
+                    <option value="SSD">SSD</option>
+                    <option value="Touchpad">Touchpad</option>
+                    <option value="Teclado">Teclado</option>
+                    <option value="Tela">Tela</option>
+                </select>
+            </div>
+            <!-- Serviço Realizado -->
+            <div class="form-group">
+                <label for="realizados">Serviço Realizados</label>
+                <select class="form-control" name="servico_realizado" id="servico_realizado">
+                    <option value="" hidden>Serviço Realizado</option>
+                    <option value="Backup">Backup</option>
+                    <option value="Fonte">Fonte</option>
+                    <option value="Impressora">Impressora</option>
+                    <option value="Instalação">Instalação</option>
+                    <option value="Manutenção">Manutenção</option>
+                    <option value="OTRS">OTRS</option>
+                    <option value="Revisão">Revisão</option>
+                    <option value="Troca de Bateria">Troca de Bateria</option>
+                    <option value="Troca de Teclado">Troca de Teclado</option>
+                    <option value="Troca de Tela">Troca de Tela</option>
+                    <option value="Troca de Touchpad">Troca de Touchpad</option>
+                    <option value="Reparo de Base">Reparo de Base</option>
+                    <option value="Limpeza">Limpeza</option>
+                    <option value="Upgrade">Upgrade</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="verificacao">Verificação</label>
+                <input class="form-control" type="date" name="verificacao" id="verificacao">
+            </div>
+            <div class="form-group">
+                <label for="status">Status</label>
+                <select class="form-control" id="status" name="status">
+                    <option value="" hidden>Status</option>
+                    <option value="Garantia">Garantia</option>
+                    <option value="Liberado">Liberado</option>
+                    <option value="Recuperado">Recuperado</option>
+                    <option value="Sem Reparo">Sem Reparo</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="observacao">Observação</label>
+                <textarea class="form-control" name="observacao" id="observacao" ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" id="submit-button">Salvar</button>
+            <button type="button" class="btn btn-warning" id="update-button" style="display: none">Atualizar</button>
+        </form>
+    </div>
+
+    <div class="container mt-5">
+        <h2>Registros de Produção</h2>
+        <button type="button" class="btn btn-success" id="gera_excel">Excel</button>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Técnico</th>
+                    <th scope="col">Patrimônio</th>
+                    <th scope="col">Órgão</th>
+                    <th scope="col">Equipamento</th>
+                    <th scope="col">Defeito</th>
+                    <th scope="col">Serviços Realizados</th>
+                    <th scope="col">Verificação</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Observação</th>
+                  </tr>
+                </thead>
+                <tbody id="registros"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script> -->
+    <script src="./envio.js"></script>
+    <script src="./leitura.js"></script>
+
+    <!-- <script>
+        const manutencaoForm = document.getElementById('manutencao-form');
+        const registrosList = document.getElementById('registros');
+        const submitButton = document.getElementById('submit-button');
+        const updateButton = document.getElementById('update-button');
+        let selectedIndex = -1;
+
+        manutencaoForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const tecnico = document.getElementById('tecnico').value;
+            const patrimonio = document.getElementById('patrimonio').value;
+            const orgao = document.getElementById('orgao').value;
+            const equipamento = document.getElementById('equipamento').value;
+            const defeito = document.getElementById('defeito').value;
+            const realizados = document.getElementById('realizados').value;
+            const verificacao = document.getElementById('verificacao').value;
+            const status = document.getElementById('status').value;
+            const observacao = document.getElementById('observacao').value;
+
+            const registro = {tecnico, patrimonio, orgao, equipamento,  defeito, realizados, verificacao, status, observacao};
+
+            const registros = JSON.parse(localStorage.getItem('registros')) || [];
+
+            if (selectedIndex === -1) {
+                registros.push(registro);
+            } else {
+                registros[selectedIndex] = registro;
+                selectedIndex = -1;
+                submitButton.style.display = 'block';
+                updateButton.style.display = 'none';
+            }
+
+            localStorage.setItem('registros', JSON.stringify(registros));
+            manutencaoForm.reset();
+            atualizarListaRegistros();
+        });
+
+        function atualizarListaRegistros() {
+            registrosList.innerHTML = '';
+
+            const registros = JSON.parse(localStorage.getItem('registros')) || [];
+
+            registros.forEach((e, index)=> {
+
+                if (e.verificacao.match(/^\d{4}-\d{2}-\d{2}$/)) {
+                    const dataParts = e.verificacao.split("-");
+                    if (dataParts.length === 3) {
+                        const ano = dataParts[0];
+                        const mes = dataParts[1];
+                        const dia = dataParts[2];
+                        const dataFormatada = `${dia}/${mes}/${ano}`;
+
+                        registrosList.innerHTML += `
+                            <tr>
+                                <td>${e.tecnico}</td>
+                                <td>${e.patrimonio}</td>
+                                <td>${e.orgao}</td>
+                                <td>${e.equipamento}</td>
+                                <td>${e.defeito}</td>
+                                <td>${e.realizados}</td>
+                                <td>${dataFormatada}</td>
+                                <td>${e.status}</td>
+                                <td>${e.observacao}</td>
+                                <td><button class="btn btn-danger" onclick="excluirRegistro(${e.index})">Excluir</button></td>
+                                <td><button class="btn btn-info" onclick="editarRegistro(${index})">Editar</button></td>
+                                
+                            </tr>
+                        `
+                    } else {
+                        console.log("Data inválida");
+                    }
+                } else {
+                console.log("Data no formato incorreto");
+                }
+
+
+            });
+
+            registros.forEach((registro, index) => {
+
+                
+
+            });
+        }
+
+        function excluirRegistro(index) {
+            const registros = JSON.parse(localStorage.getItem('registros')) || [];
+            registros.splice(index, 1);
+            localStorage.setItem('registros', JSON.stringify(registros));
+            atualizarListaRegistros();
+        }
+
+        function editarRegistro(index) {
+            const registros = JSON.parse(localStorage.getItem('registros')) || [];
+            const registro = registros[index];
+
+            document.getElementById('tecnico').value = registro.tecnico;
+            document.getElementById('patrimonio').value = registro.patrimonio;
+            document.getElementById('orgao').value = registro.orgao;
+            document.getElementById('equipamento').value = registro.equipamento;
+            document.getElementById('defeito').value = registro.defeito;
+            document.getElementById('realizados').value = registro.realizados;
+            document.getElementById('verificacao').value = registro.verificacao;
+            document.getElementById('status').value = registro.status;
+            document.getElementById('observacao').value = registro.observacao;
+
+            submitButton.style.display = 'none';
+            updateButton.style.display = 'block';
+
+            selectedIndex = index;
+        }
+
+        updateButton.addEventListener('click', function () {
+            const tecnico = document.getElementById('tecnico').value;
+            const patrimonio = document.getElementById('patrimonio').value;
+            const orgao = document.getElementById('orgao').value;
+            const equipamento = document.getElementById('equipamento').value;
+            const defeito = document.getElementById('defeito').value;
+            const realizados = document.getElementById('realizados').value;
+            const verificacao = document.getElementById('verificacao').value;
+            const status = document.getElementById('status').value;
+            const observacao = document.getElementById('observacao').value;
+
+            const registro = {
+                tecnico,
+                patrimonio,
+                orgao,
+                equipamento,
+                defeito,
+                realizados,
+                verificacao,
+                status,
+                observacao
+            };
+
+            const registros = JSON.parse(localStorage.getItem('registros')) || [];
+            registros[selectedIndex] = registro;
+
+            localStorage.setItem('registros', JSON.stringify(registros));
+            manutencaoForm.reset();
+            atualizarListaRegistros();
+
+            selectedIndex = -1;
+            submitButton.style.display = 'block';
+            updateButton.style.display = 'none';
+        });
+
+        // Carrega os registros ao carregar a página
+        atualizarListaRegistros();
+
+        document.getElementById("gera_excel").addEventListener("click", function() {
+            const tabela = document.getElementById("registros");
+            const planilha = XLSX.utils.table_to_sheet(tabela);
+            const livro = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(livro, planilha, "Planilha1");
+            XLSX.writeFile(livro, "tabela.xlsx");
+        });
+
+    </script> -->
+
+</body>
