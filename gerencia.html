@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="./configuracao.png" type="image/x-icon">
+    <title>Produção</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Produção</h2>
+        <form method="post" id="manutencao-form">
+            <div class="form-group">
+                <label for="tecnico">Técnico</label>
+                <select class="form-control" name="tecnico" id="tecnico">
+                    <option value="" hidden>Técnico</option>
+                    <option value="Cintia">Cintia</option>
+                    <option value="Igor">Igor</option>
+                    <option value="João">João</option>
+                    <option value="Rúbens">Rúbens</option>
+                    <option value="Thiago">Thiago</option>
+                </select>
+            </div>
+        </form>
+    </div>
+
+    <div class="container mt-5">
+        <h2>Registros de Produção</h2>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Técnico</th>
+                    <th scope="col">Patrimônio</th>
+                    <th scope="col">Órgão</th>
+                    <th scope="col">Equipamento</th>
+                    <th scope="col">Defeito</th>
+                    <th scope="col">Serviços Realizados</th>
+                    <th scope="col">Verificação</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Observação</th>
+                  </tr>
+                </thead>
+                <tbody id="registros"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script> -->
+
+    <script src="./leituraPersonalizada.js"></script>
+
+
+</body>

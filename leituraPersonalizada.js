@@ -1,11 +1,9 @@
-$(window).on("load", function() {
-    let tecnico = sessionStorage.getItem('tec')
+$(document).on("change", "#tecnico", function() {
+    let tecnico = $(this).val()
     $.get("http://alucomtec.pythonanywhere.com/producao/", function(e) {
         let meus = e.filter(x => x.tecnico == tecnico)
-        console.log(meus)
         var tabela = document.getElementById("registros")
         tabela.innerHTML = ""
-
         meus.forEach(i => {
             tabela.innerHTML += `
                 <tr>

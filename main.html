@@ -11,6 +11,9 @@
     <div class="container mt-5">
         <h2>Produção</h2>
         <form method="post" id="manutencao-form">
+            <div class="form-group" hidden>
+                <input type="date" name="dia" id="dia">
+            </div>
             <div class="form-group">
                 <label for="tecnico">Técnico</label>
                 <select class="form-control" name="tecnico" id="tecnico">
@@ -147,6 +150,7 @@
             <table class="table">
                 <thead>
                   <tr>
+                    <th scope="col">Dia</th>
                     <th scope="col">Técnico</th>
                     <th scope="col">Patrimônio</th>
                     <th scope="col">Órgão</th>
@@ -171,165 +175,18 @@
     <script src="./envio.js"></script>
     <script src="./leitura.js"></script>
 
-    <!-- <script>
-        const manutencaoForm = document.getElementById('manutencao-form');
-        const registrosList = document.getElementById('registros');
-        const submitButton = document.getElementById('submit-button');
-        const updateButton = document.getElementById('update-button');
-        let selectedIndex = -1;
-
-        manutencaoForm.addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            const tecnico = document.getElementById('tecnico').value;
-            const patrimonio = document.getElementById('patrimonio').value;
-            const orgao = document.getElementById('orgao').value;
-            const equipamento = document.getElementById('equipamento').value;
-            const defeito = document.getElementById('defeito').value;
-            const realizados = document.getElementById('realizados').value;
-            const verificacao = document.getElementById('verificacao').value;
-            const status = document.getElementById('status').value;
-            const observacao = document.getElementById('observacao').value;
-
-            const registro = {tecnico, patrimonio, orgao, equipamento,  defeito, realizados, verificacao, status, observacao};
-
-            const registros = JSON.parse(localStorage.getItem('registros')) || [];
-
-            if (selectedIndex === -1) {
-                registros.push(registro);
-            } else {
-                registros[selectedIndex] = registro;
-                selectedIndex = -1;
-                submitButton.style.display = 'block';
-                updateButton.style.display = 'none';
-            }
-
-            localStorage.setItem('registros', JSON.stringify(registros));
-            manutencaoForm.reset();
-            atualizarListaRegistros();
-        });
-
-        function atualizarListaRegistros() {
-            registrosList.innerHTML = '';
-
-            const registros = JSON.parse(localStorage.getItem('registros')) || [];
-
-            registros.forEach((e, index)=> {
-
-                if (e.verificacao.match(/^\d{4}-\d{2}-\d{2}$/)) {
-                    const dataParts = e.verificacao.split("-");
-                    if (dataParts.length === 3) {
-                        const ano = dataParts[0];
-                        const mes = dataParts[1];
-                        const dia = dataParts[2];
-                        const dataFormatada = `${dia}/${mes}/${ano}`;
-
-                        registrosList.innerHTML += `
-                            <tr>
-                                <td>${e.tecnico}</td>
-                                <td>${e.patrimonio}</td>
-                                <td>${e.orgao}</td>
-                                <td>${e.equipamento}</td>
-                                <td>${e.defeito}</td>
-                                <td>${e.realizados}</td>
-                                <td>${dataFormatada}</td>
-                                <td>${e.status}</td>
-                                <td>${e.observacao}</td>
-                                <td><button class="btn btn-danger" onclick="excluirRegistro(${e.index})">Excluir</button></td>
-                                <td><button class="btn btn-info" onclick="editarRegistro(${index})">Editar</button></td>
-                                
-                            </tr>
-                        `
-                    } else {
-                        console.log("Data inválida");
-                    }
-                } else {
-                console.log("Data no formato incorreto");
-                }
-
-
-            });
-
-            registros.forEach((registro, index) => {
-
-                
-
-            });
+    <script>
+        // Obtém a data de hoje no formato "YYYY-MM-DD"
+        function getTodayDate() {
+          const today = new Date();
+          const year = today.getFullYear();
+          const month = (today.getMonth() + 1).toString().padStart(2, '0');
+          const day = today.getDate().toString().padStart(2, '0');
+          return `${year}-${month}-${day}`;
         }
-
-        function excluirRegistro(index) {
-            const registros = JSON.parse(localStorage.getItem('registros')) || [];
-            registros.splice(index, 1);
-            localStorage.setItem('registros', JSON.stringify(registros));
-            atualizarListaRegistros();
-        }
-
-        function editarRegistro(index) {
-            const registros = JSON.parse(localStorage.getItem('registros')) || [];
-            const registro = registros[index];
-
-            document.getElementById('tecnico').value = registro.tecnico;
-            document.getElementById('patrimonio').value = registro.patrimonio;
-            document.getElementById('orgao').value = registro.orgao;
-            document.getElementById('equipamento').value = registro.equipamento;
-            document.getElementById('defeito').value = registro.defeito;
-            document.getElementById('realizados').value = registro.realizados;
-            document.getElementById('verificacao').value = registro.verificacao;
-            document.getElementById('status').value = registro.status;
-            document.getElementById('observacao').value = registro.observacao;
-
-            submitButton.style.display = 'none';
-            updateButton.style.display = 'block';
-
-            selectedIndex = index;
-        }
-
-        updateButton.addEventListener('click', function () {
-            const tecnico = document.getElementById('tecnico').value;
-            const patrimonio = document.getElementById('patrimonio').value;
-            const orgao = document.getElementById('orgao').value;
-            const equipamento = document.getElementById('equipamento').value;
-            const defeito = document.getElementById('defeito').value;
-            const realizados = document.getElementById('realizados').value;
-            const verificacao = document.getElementById('verificacao').value;
-            const status = document.getElementById('status').value;
-            const observacao = document.getElementById('observacao').value;
-
-            const registro = {
-                tecnico,
-                patrimonio,
-                orgao,
-                equipamento,
-                defeito,
-                realizados,
-                verificacao,
-                status,
-                observacao
-            };
-
-            const registros = JSON.parse(localStorage.getItem('registros')) || [];
-            registros[selectedIndex] = registro;
-
-            localStorage.setItem('registros', JSON.stringify(registros));
-            manutencaoForm.reset();
-            atualizarListaRegistros();
-
-            selectedIndex = -1;
-            submitButton.style.display = 'block';
-            updateButton.style.display = 'none';
-        });
-
-        // Carrega os registros ao carregar a página
-        atualizarListaRegistros();
-
-        document.getElementById("gera_excel").addEventListener("click", function() {
-            const tabela = document.getElementById("registros");
-            const planilha = XLSX.utils.table_to_sheet(tabela);
-            const livro = XLSX.utils.book_new();
-            XLSX.utils.book_append_sheet(livro, planilha, "Planilha1");
-            XLSX.writeFile(livro, "tabela.xlsx");
-        });
-
-    </script> -->
+    
+        // Define a data de hoje como valor padrão
+        document.getElementById('dia').value = getTodayDate();
+      </script>
 
 </body>
