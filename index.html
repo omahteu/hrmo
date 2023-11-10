@@ -1,62 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
     <head>
-        <title>Tela de Login</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
             rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         />
-        <link rel="shortcut icon" href="./configuracao.png" type="image/x-icon">
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <style>
-            .login-container {
-                max-width: 400px;
-                margin: 0 auto;
-                margin-top: 100px;
-            }
-        </style>
+        <link
+            rel="shortcut icon"
+            href="./configuracao.png"
+            type="image/x-icon"
+        />
+        <title>Produção</title>
     </head>
     <body>
-        <div class="container login-container">
-            <div class="card">
-                <div class="card-header">
-                    <h3>Tela de Login</h3>
+        <div class="container mt-5">
+            <h2>Produção</h2>
+            <form method="post" id="manutencao-form">
+                <div class="form-group">
+                    <label for="tecnico">Data</label>
+                    <input
+                        type="date"
+                        class="form-control"
+                        name="dia"
+                        id="dia"
+                    />
                 </div>
-                <div class="card-body">
-                    <form id="login-form">
-                        <div class="form-group">
-                            <label for="username">Usuário:</label>
-                            <select
-                                class="form-control"
-                                name="tecnico"
-                                id="tecnico"
-                            >
-                                <option value="" hidden>Técnico</option>
-                                <option value="Cintia">Cintia</option>
-                                <option value="Igor">Igor</option>
-                                <option value="João">João</option>
-                                <option value="Rúbens">Rúbens</option>
-                                <option value="Tiago">Tiago</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            Entrar
-                        </button>
-                    </form>
+
+                <div class="form-group">
+                    <label for="tecnico">Técnico</label>
+                    <select class="form-control" name="tecnico" id="tecnico">
+                        <option value="" hidden>Técnico</option>
+                        <option value="Cintia">Cintia</option>
+                        <option value="Igor">Igor</option>
+                        <option value="João">João</option>
+                        <option value="Rúbens">Rúbens</option>
+                        <option value="Thiago">Thiago</option>
+                    </select>
                 </div>
+            </form>
+        </div>
+
+        <div class="container mt-5">
+            <h2>Registros de Produção</h2>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Técnico</th>
+                            <th scope="col">Patrimônio</th>
+                            <th scope="col">Órgão</th>
+                            <th scope="col">Equipamento</th>
+                            <th scope="col">Defeito</th>
+                            <th scope="col">Serviços Realizados</th>
+                            <th scope="col">Verificação</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Observação</th>
+                        </tr>
+                    </thead>
+                    <tbody id="registros"></tbody>
+                </table>
             </div>
         </div>
 
-        <script>
-
-            $("#login-form").submit(function (e) {
-                e.preventDefault();
-                var username = $("#tecnico").val();
-                sessionStorage.setItem("tec", username)
-                window.location.href = "./main.html";
-            });
-
-        </script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="./leitura.js"></script>
     </body>
 </html>
